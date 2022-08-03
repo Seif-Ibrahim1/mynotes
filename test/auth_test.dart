@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/auth_provider.dart';
 import 'package:mynotes/services/auth/auth_user.dart';
@@ -13,12 +11,12 @@ void main() {
       expect(provider._isInitialized, false);
     });
 
-    test("Ccannot logout if not initialized", () {
+    test("Cannot logout if not initialized", () {
       expect(provider.logout(),
           throwsA(const TypeMatcher<NotInitializedException>()));
     });
 
-    test("Should be abele to be initialized", () async {
+    test("Should be able to be initialized", () async {
       await provider.initialize();
       expect(provider._isInitialized, true);
     });
@@ -57,7 +55,7 @@ void main() {
       expect(user.isEmailVerified, false);
     });
 
-    test("Logged in user should be abele to get verified", () {
+    test("Logged in user should be able to get verified", () {
       provider.sendEmailVerification();
       final user = provider.currentUser;
       expect(user, isNotNull);
